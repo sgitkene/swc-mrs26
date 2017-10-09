@@ -20,8 +20,8 @@
 			<children>
 				<GridPane fx:id="grid" disable="true" hgap="5.0">
 					<columnConstraints>
-						<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="106.0" />
-						<ColumnConstraints hgrow="SOMETIMES" maxWidth="460.0" minWidth="10.0" prefWidth="444.0" />
+						<ColumnConstraints halignment="RIGHT" hgrow="NEVER" maxWidth="270.0" minWidth="10.0" prefWidth="106.0" />
+						<ColumnConstraints hgrow="NEVER" maxWidth="460.0" minWidth="10.0" prefWidth="444.0" />
 					</columnConstraints>
 					<rowConstraints>
 						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
