@@ -62,7 +62,7 @@
 						</GridPane>
 						<VBox spacing="10.0">
 							<children>
-								<CheckBox fx:id="newUser" mnemonicParsing="false" onAction="#handleNewUser" text="new User" />
+								<CheckBox fx:id="newUser" mnemonicParsing="false" onAction="#handleNewUser" text="Create User" />
 								<Button fx:id="getUserButton" mnemonicParsing="false" onAction="#handleGetUser" text="get User" />
 							</children>
 							<HBox.margin>
