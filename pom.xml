@@ -10,6 +10,44 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+<!-- generates javadoc html files for movie rental app -->
+ <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.0-M1</version>
+        <configuration>
+          <!-- Default configuration for all reports -->
+          <doctitle>Movie Rental System – Software Construction Lab</doctitle>
+          <footer>Copyright © 2016 BSc Computer Science - FHNW</footer>
+          <show>private</show>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <id>default</id>
+            <configuration>
+              <!-- Specific configuration for the given reports -->
+            </configuration>
+            <reports>
+              <report>javadoc</report>
+              <!-- <report>test-javadoc</report>  -->
+            </reports>
+          </reportSet>
+          <reportSet>
+            <id>aggregate</id>
+            <configuration>
+              <!-- Specific configuration for the given reports -->
+            </configuration>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
 	<build>
 
 		<resources>
@@ -23,7 +61,9 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-
+		
+		
+<!-- maven compiler plugin -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
