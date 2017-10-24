@@ -76,6 +76,8 @@
 				</configuration>
 			</plugin>
 			
+<!-- gets the required maven assembly plugin for creating
+a runable .jar file according to the path of the mainclass specified-->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.1.0</version>
