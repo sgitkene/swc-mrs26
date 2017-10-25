@@ -10,43 +10,29 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-<!-- generates javadoc html files for movie rental app -->
- <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.0.0-M1</version>
-        <configuration>
-          <!-- Default configuration for all reports -->
-          <doctitle>Movie Rental System – Software Construction Lab</doctitle>
-          <footer>Copyright © 2016 BSc Computer Science - FHNW</footer>
-          <show>private</show>
-        </configuration>
-        <reportSets>
-          <reportSet>
-            <id>default</id>
-            <configuration>
-              <!-- Specific configuration for the given reports -->
-            </configuration>
-            <reports>
-              <report>javadoc</report>
-              <!-- <report>test-javadoc</report>  -->
-            </reports>
-          </reportSet>
-          <reportSet>
-            <id>aggregate</id>
-            <configuration>
-              <!-- Specific configuration for the given reports -->
-            </configuration>
-            <reports>
-              <report>aggregate</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-    </plugins>
-  </reporting>
+	<!-- generates java documentation (excluding TEST Classes) for movie rental app -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<!-- Default configuration for all reports -->
+					<doctitle>Movie Rental System – Software Construction Lab</doctitle>
+					<footer>Copyright © 2016 BSc Computer Science - FHNW</footer>
+					<show>private</show>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
 
 	<build>
 
@@ -61,11 +47,11 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
-	
-	
-		
-		
-<!-- maven compiler plugin -->
+
+
+
+
+		<!-- maven compiler plugin -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -75,9 +61,9 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
-<!-- gets the required maven assembly plugin for creating
-a runable .jar file according to the path of the mainclass specified-->
+
+			<!-- gets the required maven assembly plugin for creating a runable .jar 
+				file according to the path of the mainclass specified -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.1.0</version>
@@ -87,13 +73,13 @@ a runable .jar file according to the path of the mainclass specified-->
 							<mainClass>ch.fhnw.swc.mrs.MovieRentalSystem</mainClass>
 						</manifest>
 					</archive>
-				<descriptorRefs>
+					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 				</configuration>
 			</plugin>
-			
-<!--  maven checkstyle plugin -->
+
+			<!-- maven checkstyle plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
@@ -115,12 +101,13 @@ a runable .jar file according to the path of the mainclass specified-->
 					</execution>
 				</executions>
 			</plugin>
-	
+
 		</plugins>
 
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
