@@ -9,7 +9,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<!-- creates javadoc for NO test classes -->
 	<reporting>
 		<plugins>
@@ -26,35 +26,15 @@
 				<reportSets>
 					<reportSet>
 						<reports>
-						<!-- generates only javadoc for NO Test classes -->
+							<!-- generates only javadoc for NO Test classes -->
 							<report>javadoc</report>
 						</reports>
 					</reportSet>
 				</reportSets>
 			</plugin>
-
-<!-- generates reports of checkstyle warnings -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.9.1</version>
-				<configuration>
-					<checkstyle.config.location>src/main/config/swc_checks.xml</checkstyle.config.location>
-				</configuration>
-			</plugin>
-
 		</plugins>
-		
-		
-		
 	</reporting>
-	
-	
-	
-	
-	
-	
-	
+
 	<build>
 		<resources>
 			<resource>
@@ -68,9 +48,7 @@
 			</resource>
 		</resources>
 
-
 		<plugins>
-<!-- ASK MAX: maven checkstyle plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
@@ -92,9 +70,8 @@
 					</execution>
 				</executions>
 			</plugin>
-			
 
-		<!-- maven compiler plugin compiles regarding the java 8 jdk version -->
+			<!-- maven compiler plugin compiles regarding the java 8 jdk version -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.2</version>
@@ -120,9 +97,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
-		<!-- ASK MAX -->
-				<pluginManagement>
+
+		<pluginManagement>
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
@@ -158,13 +134,10 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		
-		
-		
 	</build>
-	
+
 	<dependencies>
-	<!-- imports the unit dependency -->
+		<!-- imports the unit dependency -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
