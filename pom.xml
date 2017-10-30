@@ -10,8 +10,43 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<build>
+	<!-- creates javadoc for NO test classes -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<!-- Configuration set to ALL reports -->
+					<doctitle>Movie Rental System – Software Construction Lab</doctitle>
+					<footer>Copyright © 2016 BSc Computer Science - FHNW</footer>
+					<show>private</show>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<!-- generates only javadoc for NO Test classes -->
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			
+				<!-- generates reports of checkstyle warnings -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<checkstyle.config.location>src/main/config/swc_checks.xml</checkstyle.config.location>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</reporting>
 
+	<build>
 		<resources>
 			<resource>
 				<directory>src/main/java</directory>
@@ -25,6 +60,8 @@
 		</resources>
 
 		<plugins>
+
+			<!-- maven compiler plugin compiles regarding the java 8 jdk version -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.2</version>
@@ -34,11 +71,26 @@
 				</configuration>
 			</plugin>
 
-		</plugins>
-
+			<!-- maven assembly plugin for creating a runable .jar file 			 -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>ch.fhnw.swc.mrs.MovieRentalSystem</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+		</plugins>	 
 	</build>
 
 	<dependencies>
+		<!-- imports the unit dependency -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
