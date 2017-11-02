@@ -159,7 +159,12 @@ public class RentMovieController implements MRSServiceUtilizer {
   @FXML
   private void handleSave() {
     Movie m = availableMoviesTable.getSelectionModel().getSelectedItem();
-    backend.createRental(found, m, LocalDate.now());
+    try {
+      backend.createRental(found, m, LocalDate.now());
+    } catch (Exception e) {
+      Alert alert = new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK);
+      alert.showAndWait();
+    }
     reload();
     handleClearAll();
   }
