@@ -17,6 +17,8 @@ import javafx.beans.property.SimpleObjectProperty;
  * 
  */
 public class Rental {
+  /** Maximum allowed number of Rentals per User */
+  public static final int maxAllowedRentals = 3;
   /** Flag indicating whether the object has been initialized. */
   private boolean initialized = false;
   private final IntegerProperty id = new SimpleIntegerProperty(0) {
@@ -124,17 +126,21 @@ public class Rental {
    * @param aUser User who is renting aMovie.
    * @param aMovie Movie that is rented.
    * @param aRentalDate date of start of this rental.
+   * @throws MovieRentalException if the amount of Rentals is exceeded for aUser.
    * @throws IllegalStateException if the movie is already rented.
    * @throws NullPointerException if not all input parameters where set.
    */
   public Rental(User aUser, Movie aMovie, LocalDate aRentalDate) {
-	  
-    user.set(aUser);
-    movie.set(aMovie);
+    if (aUser.getNumberOfRentals() > maxAllowedRentals) {
+      throw new MovieRentalException("Maximum number of rentals (" + maxAllowedRentals + ") exceeded!");
+    } else {
+      user.set(aUser);
+      movie.set(aMovie);
+      aUser.getRentals().add(this);
+      aMovie.setRented(true);
+      rentalDate.set(aRentalDate);
+    }
 
-    aUser.getRentals().add(this);
-    aMovie.setRented(true);
-    rentalDate.set(aRentalDate);
   }
   
    /**
