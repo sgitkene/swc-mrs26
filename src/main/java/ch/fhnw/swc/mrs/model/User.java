@@ -243,6 +243,15 @@ public class User {
   public boolean hasRentals() {
     return !rentals.isEmpty();
   }
+  
+  /**
+   * calculate how many rentals this user has
+   * 
+   * @return number of rentals of this user
+   */
+  public int getNumberOfRentals() {
+      return rentals.size();
+  }
 
   /**
    * add a new rental to the user.
