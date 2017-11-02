@@ -21,7 +21,6 @@ public class User {
    * Flag indicating whether object has been initialized.
    */
   private boolean initialized = false;
-  private final int maxAllowedRentals = 3;
 
   /** An identification number unique to each user. */
   private final IntegerProperty id = new SimpleIntegerProperty(0) {
@@ -134,7 +133,6 @@ public class User {
 
   /**
    * @param someRentals set the user's rentals.
-   * @throws MovieRentalException If number of allowed Rentals is exceeded
    */
   public void setRentals(List<Rental> someRentals) {
     this.rentals = someRentals;
