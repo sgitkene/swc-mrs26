@@ -22,7 +22,7 @@
      <checkstyle.config.location>src/main/config/swc_checks.xml</checkstyle.config.location>
                  <phase>validate</phase>
     </configuration>
-   </plugin> 
+    </plugin> 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -42,6 +42,17 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
+			
+				<!-- generates reports of checkstyle warnings -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<checkstyle.config.location>src/main/config/swc_checks.xml</checkstyle.config.location>
+				</configuration>
+			</plugin>
+			
 		</plugins>
 	</reporting>
 
@@ -93,7 +104,7 @@
 				</configuration>
 			</plugin>
 
-			<!-- maven assembly plugin for creating a runable .jar file -->
+			<!-- maven assembly plugin for creating a runable .jar file 			 -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.1.0</version>
@@ -108,8 +119,7 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
-		</plugins>
-
+		</plugins>	 
 	</build>
 
 	<dependencies>
